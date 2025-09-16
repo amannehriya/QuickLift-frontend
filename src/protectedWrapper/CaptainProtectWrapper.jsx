@@ -13,13 +13,16 @@ function CaptainProtectWrapper({ children }) {
   useEffect(() => {
     if (!token) navigate('/captain-login');
 
-    axios.get(`${import.meta.env.VITE_BASE_UR}/captain/profile`, {
+  
+       axios.get(`${import.meta.env.VITE_BASE_URL}/captain/profile`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }).then(response => {
       if (response.status === 200) {
+      console.log(response.data)
         setCaptain(response.data.captain);
+        console.log(captain)
         setIsLoading(false);
       }
     }).catch(err => {
@@ -27,6 +30,7 @@ function CaptainProtectWrapper({ children }) {
       localStorage.removeItem('token');
       navigate('/captain-login')
     })
+   
   }, [token])
 
 

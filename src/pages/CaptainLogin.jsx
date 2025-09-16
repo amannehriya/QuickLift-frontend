@@ -23,7 +23,8 @@ function CaptainLogin() {
 
       if (response.status === 200) {
         console.log(response.data)
-        navigate(`/verify-otp/${mobile}`)
+     
+        navigate(`/verify-otp/${mobile}` ,{state:{otp:response.data.otp}})
       }
     } catch (err) {
       console.log(err.response.data.errors);

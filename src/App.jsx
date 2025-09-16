@@ -10,6 +10,8 @@ import CaptainProtectWrapper from './protectedWrapper/CaptainProtectWrapper'
 import UserHome from './pages/UserHome'
 import CaptainHome from './pages/CaptainHome'
 import VerifyOtp from './pages/VerifyOtp'
+import CaptainRiding from './pages/CaptainRiding'
+import Riding from './pages/Riding'
 
 function App() {
   return (
@@ -23,12 +25,17 @@ function App() {
         
         <Route path='/captain-register/:mobile/:otp' element={<CaptainRegister />} />
         <Route path='/verify-otp' element={<VerifyOtp />} />
+        
+        <Route path='/riding' element={<Riding />} />
+        <Route path='/captain-riding' element={<CaptainRiding />} />
 
-        <Route path='/user-home' element={
+
+         <Route path='/user-home' element={ 
           <UserProtectWrapper>
-            <UserHome />
-          </UserProtectWrapper>
-        } />
+           <UserHome />
+        </UserProtectWrapper>
+         }
+     />
 
         <Route path='/captain-home' element={
           <CaptainProtectWrapper>

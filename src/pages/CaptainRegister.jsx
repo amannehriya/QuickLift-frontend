@@ -8,7 +8,7 @@ import { CaptainDataContext } from '../context/CaptainContext'
 function CaptainRegister() {
   const navigate = useNavigate()
   const { mobile, otp } = useParams();
-  const [errors, setError] = useState(null);
+  const [errors, setError] = useState([]);
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -64,7 +64,9 @@ function CaptainRegister() {
   return (
     <div className='py-5 px-5 bg-[#1A1A1A] h-screen flex flex-col justify-between overflow-hidden'>
       <div>
-        <img className='w-[150px] mb-10' src="./logo.png" alt="" />
+        
+        <img className='w-[150px] mb-7' src="/logo.png" alt="" />
+        <h2 className='text-white text-center font-semibold text-xl mb-5 '>Enter your details</h2>
 
         <form onSubmit={(e) => {
           submitHandler(e)

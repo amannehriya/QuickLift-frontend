@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 function VerifyOtp() {
     const length = 6;
     const [values, setValues] = useState(Array(length).fill(""));
@@ -9,11 +9,13 @@ function VerifyOtp() {
     const inputRef = useRef([]);
     const navigate = useNavigate();
     const { mobile } = useParams();
-
+    const location = useLocation();
+    const otp = location.state?.otp;
     //focus first input on mount
 
     useEffect(() => {
         inputRef.current[0]?.focus();
+        alert(otp);
     }, [])
 
 
@@ -35,7 +37,7 @@ function VerifyOtp() {
             inputRef.current[index + 1]?.focus();
         }
 
-        setError([ ]);
+        setError([]);
     }
 
     const handleKeyDown = (index, e) => {
@@ -96,7 +98,7 @@ function VerifyOtp() {
         // focus next empty or last
         const firstEmpty = digits.length >= length ? length - 1 : digits.length;
         inputRef.current[firstEmpty]?.focus();
-        setError([ ]);
+        setError([]);
 
     }
 
@@ -107,7 +109,7 @@ function VerifyOtp() {
             setError([`please enter all ${length} digits.`])
             return;
         }
-        setError([ ]);
+        setError([]);
         try {
             setLoading(true);
             const data = {
@@ -128,7 +130,7 @@ function VerifyOtp() {
 
 
         } catch (err) {
-              console.log(err.response.data.errors || ["Verification failed. Try again."])
+            console.log(err.response.data.errors || ["Verification failed. Try again."])
             setError(err.response.data.errors || ["Verification failed. Try again."])
         } finally {
             setLoading(false);
@@ -181,14 +183,14 @@ function VerifyOtp() {
                             ))}
                         </div>
 
-                         {/* Show backend validation errors */}
-        {(errors.length > 0) && (
-          <ul className="text-red-600 mb-2 text-center mt-3">
-            {errors.map((err, index) => (
-              <li key={index}>{typeof err === "string" ? err : err.msg}</li>
-            ))}
-          </ul>
-        )}
+                        {/* Show backend validation errors */}
+                        {(errors.length > 0) && (
+                            <ul className="text-red-600 mb-2 text-center mt-3">
+                                {errors.map((err, index) => (
+                                    <li key={index}>{typeof err === "string" ? err : err.msg}</li>
+                                ))}
+                            </ul>
+                        )}
 
                         <p className="mt-10   text-sm text-gray-400 text-center">
                             Didn’t receive a code ?{" "}

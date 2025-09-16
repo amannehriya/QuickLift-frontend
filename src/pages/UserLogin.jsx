@@ -27,9 +27,13 @@ function UserLogin() {
       const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/login`, userData)
 
       if (response.status === 200) {
-        const data = response.data
-        setUser(data.user)
+        const data = await response.data
+
         localStorage.setItem('token', data.token)
+        // setUser(data.user)
+        // console.log(user)
+        // console.log(data.user)
+       
         navigate('/user-home')
       }
 

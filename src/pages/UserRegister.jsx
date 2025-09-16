@@ -118,7 +118,7 @@ function UserRegister() {
             />
 
               {/* Show backend validation errors */}
-        {errors.length > 0 && (
+        {errors?.length > 0 && (
           <ul className="text-red-600 mb-2">
             {errors.map((err, index) => (
               <li key={index}>{typeof err === "string" ? err : err.msg}</li>

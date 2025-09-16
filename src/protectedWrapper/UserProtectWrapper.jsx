@@ -12,12 +12,13 @@ function UserProtectWrapper({ children }) {
   useEffect(() => {
     if (!token) navigate('/user-login');
 
-    axios.get(`${import.meta.env.VITE_BASE_UR}/user/profile`, {
+    axios.get(`${import.meta.env.VITE_BASE_URL}/user/profile`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     }).then(response => {
       if (response.status === 200) {
+        // console.log(response.data)
         setUser(response.data);
         setIsLoading(false);
       }

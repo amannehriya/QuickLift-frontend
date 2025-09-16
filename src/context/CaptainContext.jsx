@@ -10,7 +10,7 @@ function CaptainContext({ children }) {
     const updateCaptain = (captainData) => {
         setCaptain(captainData);
     }
-
+// console.log(captain);
 
     return (
         <CaptainDataContext.Provider value={{ captain, setCaptain, error, setError, loading, setLoading }}>
