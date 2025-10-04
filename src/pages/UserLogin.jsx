@@ -49,7 +49,9 @@ function UserLogin() {
 
   return (
     <div className='p-7 h-screen bg-[#1A1A1A] flex flex-col justify-between'>
-      <div>
+
+
+      <div className=''>
         <img className='w-[150px] mb-10' src="./logo.png" alt="" />
 
         <form onSubmit={(e) => {
@@ -80,7 +82,7 @@ function UserLogin() {
           />
 
           {/* Show backend validation errors */}
-        {errors.length > 0 && (
+        {errors?.length > 0 && (
           <ul className="text-red-600 mb-2">
             {errors.map((err, index) => (
               <li key={index}>{typeof err === "string" ? err : err.msg}</li>
@@ -100,6 +102,8 @@ function UserLogin() {
           className='bg-[#d5b607] flex items-center justify-center text-white font-semibold mb-5 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
         >Sign in as Captain</Link>
       </div>
+
+
     </div>
   )
 }

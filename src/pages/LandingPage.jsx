@@ -18,34 +18,28 @@ export default function LandingPage() {
 
   return (
     <div
-      className="flex flex-col justify-between  h-screen w-full bg-cover bg-center relative overflow-hidden"
-      style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1557404763-69708cd8b9ce?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
-      }}
+      className="  flex flex-col justify-between bg-[url(/mobile-landing.png)] bg-no-repeat lg:bg-[url(/landing-page.png)] h-screen w-full   bg-cover object-contain relative overflow-hidden"
+      
     >
+  
       {/* Top Bar */}
-      <div className="flex justify-between items-center p-4">
+      <div className="flex justify-between items-center px-4">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-zinc-900">🚖 QuikLift</h1>
-
+         <img src="/logo.png" className=' w-40' alt="" />
         {/* Current Time */}
         <p className="text-lg font-semibold text-white">{time}</p>
       </div>
 
       {/* Center Content */}
-      <div className="  flex flex-col justify-center items-center h-1/3 text-center">
-        <h2 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">
-          Ride Smarter with QuikLift
-        </h2>
-        <p className="mt-4 text-lg md:text-xl text-white opacity-90">
-          Your reliable ride, anytime, anywhere
-        </p>
+      <div className=" absolute top-[550px]  lg:left-[100px] left-[50px]  flex flex-col  items-center h-1/3 text-center">
+       
 
-        <button className=" mt-8 px-8 py-3 w-5/6  bg-black text-white font-semibold rounded-2xl shadow-lg hover:bg-gray-800 transition"
+        <button className=" mt-8 py-3 w-[180px] h-[50px]  bg-gray-200 text-black hover:text-white text-xl  font-bold rounded-full shadow-lg hover:bg-gray-800 transition"
         onClick={()=>{navigate('/user-login')}}>
           Get Started
         </button>
       </div>
+   
     </div>
   );
 }

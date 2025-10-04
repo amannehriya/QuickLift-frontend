@@ -146,7 +146,7 @@ function VerifyOtp() {
                     <div className="flex items-center gap-3">
 
                         <div>
-                            <img className='w-[150px] mb-1' src="./logo.png" alt="" />
+                            <img className='w-[150px] mb-1' src="/logo.png" alt="" />
 
                             <p className="text-sm text-gray-300">Driver / User verification</p>
                         </div>
